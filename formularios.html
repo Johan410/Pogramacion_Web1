@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+	<style>
+
+	.logo{
+		position: absolute;
+		left: 60vw;
+		top: 0em;
+		width: 6em;
+	}
+
+	body{
+		background-color: #FFFF94;
+	}
+
+	form{
+		position: relative;
+		margin: 2em;
+		padding: 2em;
+		width: 90vw;
+		background-color: beige;
+	}
+
+	fieldset{
+			border: 1px solid #FE4D4D;
+	}
+	
+
+	input,label,select{
+		margin: .5em;
+	}
+
+	.formDiv{
+		margin: 2em;
+		position: absolute;
+		left: 50%;
+		width: 40%;
+		
+	}
+
+	.formDiv2{
+		margin: 2em;
+		width: 40%;
+	}
+	
+	.Div1_tabla{
+		width: 50%;
+	}
+
+	.Div2_tabla{
+		position: relative;
+		width: 50%;
+		left: 50%;
+		top: -10em;
+
+	}
+
+	.formDatosPFacturar{
+		width: 92%;
+	}
+
+	h1{
+		text-align: center;
+	}
+
+
+	</style>
+
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Formularios lamborghini</title>
+</head>
+<body> 
+
+	<header>
+		<h1>Lamborghini</h1>
+		<img class="logo" src="logoLambo.png">	
+	</header>
+	
+	
+	<form class="formClient" method="post" enctype="text/plain">
+		<fieldset>
+			<legend>Información para el cliente</legend>
+			
+			<div class="formDiv">
+				<label for="nombre">Nombre:</label>
+				<input type="text" name="nombre" id="nombre" placeholder="nombre"><br/>
+
+				<label for="apellidoP">Apellido paterno:</label>
+				<input type="text" name="apellidoP" id="apellidoP" placeholder="Apellido Paterno"><br/>
+
+				<label for="apellidoM">Apellido materno:</label>
+				<input type="text" name="apellidoM" id="apellidoM" placeholder="apellido Materno"><br/>
+			</div>
+
+			<div class="formDiv2">
+				<label for="nombreUs">Nobre de usuario:</label>
+				<input type="text" name="nombreUs" id="nombreUs" placeholder="Nombre de usuario"><br/>
+
+				<label for="password">Contraseña</label>
+				<input type="password" name="password" id="password" placeholder="Password"><br/>
+
+				<label for="fechRegist">Fecha de registro:</label>
+				<input type="date" name="fechRegist" id="fechRegist">
+			</div>
+
+		</fieldset>	
+	</form>
+
+	<form class="formDatosPFacturar">
+		<fieldset>
+			<legend>Datos para facturar</legend>
+		
+
+
+		<div class="Div1_tabla">
+			<label for="pais">País</label>
+			<select id="pais" name="pais">
+		        <option value="México">México</option>
+		        <option value="Canadá">Canadá</option>
+		        <option value="ReinoUnido">Reino Unido</option>
+			 </select><br>
+
+			 <label for="ciudad">Ciudad</label>
+			<select id="ciudad" name="ciudad">
+		        <option value="SLP">San Luis Potosí</option>
+		        <option value="Monterrey">Monterrey</option>
+		        <option value="cdValles">Cd. valles</option>
+			 </select><br>
+
+
+			 <label for="calle">Calle</label>
+			 <input type="text" name="calle" id="calle" placeholder="Calle"><br>
+	
+			 <label for="col">Colonia</label>
+			 <input type="text" name="col" id="col" placeholder="Colonia"><br>
+	
+
+			 <label for="e-mail">E-mail</label>
+			 <input type="email" name="e-mail" id="e-mail" placeholder="E-mail">
+		</div>
+
+		<div class="Div2_tabla">
+			 <label for="RFC">R.F.C</label>
+			 <input type="text" name="RFC" id="RFC" placeholder="R.F.C"><br>
+
+			 <label for="CP">C.P</label>
+			 <input type="text" name="cp" id="cp" placeholder="Codigo postal">
+		</div>
+
+			 <input type="checkbox" name="terminos" id="terminos" required>
+			 <label for="terminos">Acepto términos y condiciones</label>
+
+		 <button type="submit">Enviar</button>
+		 <button type="reset">Restablecer</button>
+		 
+
+
+		 
+		</fieldset>
+	</form>
+
+</body>
+</html>
