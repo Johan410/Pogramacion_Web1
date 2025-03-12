@@ -1,0 +1,73 @@
+ul{
+	list-style-type: none;
+	background-color:lightblue;
+	list-style-type: none;
+	width: 20%;
+	margin: 0;
+	padding: 0;
+	height: 80%;
+	background-color:#008800;
+	position: fixed;
+}	
+
+li a{
+	background-color: #008800;
+	color: white;
+	display: block;
+	padding: 16px; 
+	text-decoration: none;
+}
+
+li a:hover{
+	background-color:#00AA00;
+}
+
+li .activo{
+	background-color:darkgreen;
+	color: white;
+}
+
+.capa1{
+	margin-left: 25%;
+	padding: 12px;
+}
+
+h1{
+	 font-family: "Emblema One", system-ui;
+  	font-weight: 400;
+  	font-style: normal;
+}
+
+h2{
+	font-family: "Playwrite HU", cursive;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+}
+
+h4{
+  font-family: "Noto Sans TC", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+}
+
+@font-face{
+	font-family:"static";
+	src:url("static/Roboto_Condensed-Black.ttf")
+	format("truetype");
+}
+
+@font-face{
+	font-family:"static2";
+	src:url("static/Roboto_SemiCondensed-Light.ttf")
+	format("truetype");
+}
+
+p{
+	font-family: static;
+}
+
+.t2{
+	font-family:static2 ;
+}
