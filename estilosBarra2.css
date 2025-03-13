@@ -3,9 +3,9 @@ ul{
 	background-color:lightblue;
 	list-style-type: none;
 	width: 20%;
-	margin: 0;
+	margin-right:0;
 	padding: 0;
-	height: 80%;
+	height: 100%;
 	background-color:#008800;
 	position: fixed;
 }	
