@@ -209,8 +209,8 @@ a{
 }
 
 .iconos img{
-	height:4vh;
-	top: -1vh;
+	height:4%;
+	top: -1%;
 	
 }
 
@@ -361,7 +361,7 @@ a{
 }
 
 .ordenar img{
-	width: 3vw;
+	width: 9%;
 }
 
 .ordenar-content{
@@ -377,6 +377,7 @@ a{
 }
 
 .ordenar-img{
+	padding: 0 20%;
 	position: absolute;
 	display: flex;
 	justify-content: space-between;
@@ -385,7 +386,8 @@ a{
 }
 
 .ordenar-img img{
-	width: 50%;
+	margin: 0 0 0 20%;
+	width: 80%;
 }
 
 hr{
