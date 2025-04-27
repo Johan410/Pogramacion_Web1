@@ -4,16 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="reservaciones_estilos.css">
+    <link rel="stylesheet" type="text/css" href="style_texto.css">
+    <link rel="stylesheet" type="text/css" href="style_encabezado.css">
     <title>Menú</title>
 
 </head>
 <body>
-    
     <div class="contenedor">
         <header class="header">
             <div class="header_triangulo"></div>
             <h2>Sushi itto</h2>
-            <div class="menu-title">Reservaciones</div>
+            <div class="menu-title"><h1>Reservaciones</h1></div>
             <div class="menu-container">
         <div class="menu-icon" onclick="toggleMenu()">☰</div>
         <div class="menu-options" id="menu">
@@ -21,13 +22,18 @@
             <a href="index-proyecto.html">🍣 Home</a>
             <a href="nosotros.html">🏠 Nosotros</a>
             <a href="menu.html">🥢 Menú</a>
+            <a href="formsorden.html">📦 Ordena Ahora</a>
             <a href="ayuda.html">🏬 Ayuda</a>
         </div>
     </div>
         </header>
 
-        <div class="subtitulo"><h2>¡Reserva un increible servicio en SUSHI - ITTO!</h2></div>
+        <div class="subtitulo">
+            <h2>¡Reserva un increible servicio en SUSHI - ITTO!</h2></div>
         <div class="texto1">
+            <div class="bottonForm" id="bottonForm">
+                <a href="formularioReservacion.html"><p>Reservar</p></a>
+            </div>
                 <section class="carrusel">
                     <div style="width: 300%;" class="carrusel_nav">
                         <ul>
@@ -44,7 +50,14 @@
                 <p><strong>¡Prepárate para una experiencia de sabor única! Reserva ahora en nuestro restaurante de sushi y déjate sorprender por la frescura, el arte y la pasión en cada rollo. ¡Tu mesa te espera! </strong></p>
             </div>
         </div>
-  <footer>
+  
+    <div class="formulario" id="formulario">
+       <div class="contentFormulario">
+            <h2>hola</h2>
+       </div>
+    </div>
+
+    <footer>
         <br>
         <hr>
         <h3>© 2025 Sushi Itto. Todos los Derechos Reservados</h3><br/>
@@ -58,6 +71,7 @@
             <a href="https://www.facebook.com/SushiIttoOficial" target="_BLANK"><img src="img/facebook.png"></a> 
         </div>
     </footer>
+
 
     <script>
         function toggleMenu() {
