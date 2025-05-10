@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulario HTML</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+      form {
+        width: 50%;
+        margin: auto;
+        padding: 4%;
+        background: linear-gradient(to bottom, #ff7e5f, #feb47b);
+      }
+      input,
+      select {
+        width: 100%;
+        margin-bottom: 1em;
+      }
+      canvas {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <form>
+      <h2>¿Sabes sobre HTML?</h2>
+      <label>Nombre <input type="text" id="user" required /></label>
+      <label>Email <input type="email" id="email" required /></label>
+
+      <h3>¿Cuál es la función de la etiqueta form en HTML?</h3>
+      <select id="rForm">
+        <option value="correcta">Permite crear formularios</option>
+        <option value="incorrecta">Aplica estilos</option>
+        <option value="incorrecta">Divide en secciones</option>
+      </select>
+
+      <h3>¿Cuál es la diferencia entre ul y ol?</h3>
+      <select id="etList">
+        <option value="correcta">ul es sin orden, ol es ordenada</option>
+        <option value="incorrecta">No hay diferencia</option>
+        <option value="incorrecta">Ambas son para formularios</option>
+      </select>
+
+      <h3>¿Para qué se usa la etiqueta a en HTML?</h3>
+      <select id="etA">
+        <option value="incorrecta">Para negritas</option>
+        <option value="correcta">Para enlaces</option>
+        <option value="incorrecta">Para encabezados</option>
+      </select>
+
+      <h3>¿Diferencia entre id y class?</h3>
+      <select id="idClass">
+        <option value="correcta">id es único, class puede repetirse</option>
+        <option value="incorrecta">Son lo mismo</option>
+        <option value="incorrecta">Cambian el tamaño</option>
+      </select>
+
+      <h3>¿Qué significa HTML5?</h3>
+      <select id="HTML5">
+        <option value="incorrecta">Base de datos</option>
+        <option value="correcta">Nueva versión con mejoras</option>
+        <option value="incorrecta">Lenguaje diferente</option>
+      </select>
+
+      <h3>¿Para qué sirve la etiqueta head?</h3>
+      <select id="head">
+        <option value="incorrecta">Contenido principal</option>
+        <option value="incorrecta">Tablas</option>
+        <option value="correcta">Metadatos y enlaces</option>
+      </select>
+
+      <br /><br />
+      <input type="button" value="Enviar" onclick="procesarFormulario()" />
+    </form>
+
+    <canvas id="grafico" width="400" height="300"></canvas>
+
+    <script>
+      const respuestas = JSON.parse(localStorage.getItem("respuestas")) || [];
+
+      function procesarFormulario() {
+        let puntaje = 0;
+        const nombre = document.getElementById("user").value;
+        const email = document.getElementById("email").value;
+        const preguntas = [
+          "rForm",
+          "etList",
+          "etA",
+          "idClass",
+          "HTML5",
+          "head",
+        ];
+
+        preguntas.forEach((id) => {
+          if (document.getElementById(id).value === "correcta") puntaje++;
+        });
+
+        respuestas.push({ nombre, email, puntaje });
+        localStorage.setItem("respuestas", JSON.stringify(respuestas));
+
+        generarPDF(nombre, email, puntaje);
+      }
+
+      async function generarPDF(nombre, email, puntaje) {
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF();
+
+        doc.setFontSize(16);
+        doc.text("Resultados del cuestionario", 20, 20);
+        doc.text(`Nombre: ${nombre}`, 20, 30);
+        doc.text(`Correo: ${email}`, 20, 40);
+        doc.text(`Puntaje: ${puntaje}/6`, 20, 50);
+
+        const nombres = respuestas.map((r) => r.nombre);
+        const puntos = respuestas.map((r) => r.puntaje);
+
+        const canvas = document.getElementById("grafico");
+        const ctx = canvas.getContext("2d");
+
+        new Chart(ctx, {
+          type: "bar",
+          data: {
+            labels: nombres,
+            datasets: [
+              {
+                label: "Puntaje",
+                data: puntos,
+                backgroundColor: "rgba(54, 162, 235, 0.6)",
+              },
+            ],
+          },
+          options: {
+            responsive: false,
+            animation: false,
+          },
+        });
+
+        setTimeout(() => {
+          const imgData = canvas.toDataURL("image/png");
+          doc.addImage(imgData, "PNG", 20, 60, 160, 80);
+          doc.save(`${nombre}_resultado.pdf`);
+        }, 1000);
+      }
+    </script>
+  </body>
+</html>
