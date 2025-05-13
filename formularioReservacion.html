@@ -25,6 +25,7 @@
             <div class="close-menu" onclick="toggleMenu()">✖</div>
             <a href="index-proyecto.html">🍣 Home</a>
             <a href="nosotros.html">🏠 Nosotros</a>
+            <a href="ordenar.html">📦 Ordena Ahora</a>
             <a href="menu.html">🥢 Menú</a>
             <a href="ayuda.html">🏬 Ayuda</a>
             <p class="bchatbot" onclick="MostrarChat()">🤖 chatbot</p>
@@ -44,7 +45,7 @@
           <img src="img/map.png" id="imgForm" />
           <form class="tienda">
             <p>Selecciona la tienda</p>
-            <select class="seleccionTienda">
+            <select class="seleccionTienda" required>
               <option>Sushiitto The Park</option>
               <option>Sushiitto Covalia</option>
             </select>
@@ -54,7 +55,7 @@
 
       <div class="parte_2">
         <div class="input-container">
-          <label for="numero" id="numero">Cant personas:</label>
+          <label for="numero">Cant personas:</label>
           <input
             type="number"
             id="numero"
@@ -63,6 +64,8 @@
             max="15"
             step="1"
             value="2"
+            onchange="depo()"
+            required
           />
         </div>
       </div>
@@ -115,18 +118,57 @@
               required
             /><br />
             <label for="deposito">Monto del depósito:</label>
+            <p id="deposito"></p>
+            <label for="metodoPago">
+              Metodo de pago:<br />
+              <select
+                name="metodoPago"
+                id="metodoPago"
+                onchange="metodoPagof()"
+                required
+              >
+                <option value="efectivo">Efectivo</option>
+                <option value="tarjeta">Tarjeta</option>
+              </select>
+            </label>
+
+            <div class="metodoPagoTarjeta" id="metodoPagoTarjeta">
+              <h2>Datos de la tarjeta:</h2>
+              <label for="TipoTarjeta">
+                Tipo de tarjeta
+                <select id="TipoTarjeta" name="TipoTarjeta" required>
+                  <option value="debito">Debito</option>
+                  <option value="credito">Credito</option>
+                </select> </label
+              ><br /><br />
+
+              <label for="numTarjeta">
+                Numero de la tarjeta:
+                <input
+                  type="number"
+                  name="numTarjeta"
+                  id="numTarjeta"
+                  required
+                /> </label
+              ><br /><br />
+
+              <label for="cvv">
+                CVV:
+                <input type="number" name="cvv" id="cvv" required /> </label
+              ><br /><br />
+
+              <label for="FechVenc"
+                >Fecha de vencimiento: <input type="date"
+              /></label>
+            </div>
+
             <input
-              type="number"
-              id="deposito"
-              name="deposito"
-              min="50"
-              max="1000"
-              step="50"
-              placeholder="Ej. 500"
+              id="enviar"
+              type="submit"
+              value="Enviar"
+              onclick="Enviar()"
               required
-              value="500"
             />
-            <input id="enviar" type="submit" value="Enviar" />
           </form>
         </section>
       </div>
@@ -177,5 +219,7 @@
 
     <script src="01-formulario.js"></script>
     <script src="chat.js"></script>
+    <script src="enviarReservacion.js"></script>
+    <script src="jsPDF-1.3.2\dist\jspdf.min.js"></script>
   </body>
 </html>
