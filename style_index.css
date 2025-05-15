@@ -106,6 +106,7 @@ a{
 }
 
 .promo-img{
+	z-index: 1;
 	display: flex;
 	flex-flow: row wrap;
 	justify-content: space-around;
@@ -406,6 +407,7 @@ h3{
             right: 20px;
         }
         .menu-options {
+			z-index: 2;
             display: none;
             position: fixed;
             top: 0;
@@ -518,3 +520,4 @@ a{
 #botOrden{
 	width: 80%;
 }
+
