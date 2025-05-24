@@ -129,15 +129,13 @@ function guardar() {
     const casa = document.getElementById("numero-casa").value;
     const calle = document.getElementById("calle").value;
     const colonia = document.getElementById("colonia").value;
-    const CURP = document.getElementById("CURP").value;
     const cp = document.getElementById("cp").value;
-
+  
     agregarTexto(`Método de envío: A domicilio`);
     agregarTexto(`Estado: ${paisSelect}`);
     agregarTexto(`Número de casa: ${casa}`);
     agregarTexto(`Calle: ${calle}`);
     agregarTexto(`Colonia: ${colonia}`);
-    agregarTexto(`CURP: ${CURP}`);
     agregarTexto(`Código postal: ${cp}`);
     agregarTexto("");
   } else if (sucursal.style.display === 'block') {
@@ -194,6 +192,10 @@ function guardar() {
   } else {
     alert('Selecciona un método de pago');
     bandera = 0;
+  }
+  const comentarios = document.getElementById("comentarios").value;
+  if(comentarios){
+    agregarTexto(`Comentarios: ${comentarios}`);
   }
 
   if (bandera !== 0) {
